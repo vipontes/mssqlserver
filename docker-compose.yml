@@ -1,0 +1,13 @@
+services:
+  mssql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql-server
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=cf8b8608-012e-4d62-a178-dc2c04a456f7
+      - MSSQL_PID=Express
+    ports:
+      - "7433:1433"
+    volumes:
+      - ./data/mssql:/var/opt/mssql
+    restart: always
