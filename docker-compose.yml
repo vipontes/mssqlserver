@@ -9,5 +9,14 @@ services:
     ports:
       - "7433:1433"
     volumes:
-      - ./data/mssql:/var/opt/mssql
+      - mssql-data:/var/opt/mssql
+    networks:
+      - data-net      
     restart: always
+
+volumes:
+  mssql-data:
+
+networks:
+  data-net:
+    driver: bridge
